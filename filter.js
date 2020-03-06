@@ -15,11 +15,11 @@ function filterName() {
 
 
 function letterHighlight() {
-    const value = this.value.toUpperCase();
+    const value = this.value;
+    let myRegEx = new RegExp(value, 'gi');
     names.forEach((name) => {
-        if(name.textContent.toUpperCase().includes(value)){
+        if(myRegEx.test(name.textContent)){
             let nameString = name.textContent;
-            let myRegEx = new RegExp(value, 'gi');
             let result = nameString.replace(myRegEx, "<span class='highlight'>" + value + "</span>");
 
             name.innerHTML = result;
